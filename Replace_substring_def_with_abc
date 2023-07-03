@@ -1,0 +1,13 @@
+Pyspark Program to Replace_substring_def_with_abc
+
+data=[('abc def','sales',3000)]
+columns=['emp_name','dept','salary']
+df=spark.createDataFrame(data=data,schema=columns)
+df.printSchema()
+df.show(truncate=0)
+
+from pyspark.sql.functions import col,regexp_replace
+
+df.withColumn('emp_name',regexp_replace(col('emp_name'),'def','abc')).show()
+
+
