@@ -1,3 +1,11 @@
+from pyspark.sql.functions import *
+
+df.select(current_date().alias('date')).withColumn("formatted_date",date_format(lit(current_date()),'yyyyMMdd')).show()
+
+
+ANOTHER_WAY_USING_REGEX_FUNCTION
+
+
 from pyspark.sql.functions import col,regexp_replace,substring,expr,current_timestamp
 df_with_ts = df.withColumn("curr_timestamp", current_timestamp())
 df_with_ts.withColumn("curr_timestamp", regexp_replace("curr_timestamp", "-", "")).show()
