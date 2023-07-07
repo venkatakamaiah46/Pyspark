@@ -1,0 +1,21 @@
+The below code block contains an error. The code block is intended to return a new DataFrame that
+is the result of an inner join between DataFrame storesDF and DataFrame employeesDF on
+column storeId and column employeeId which are in both DataFrames. Identify the error.
+Code block:
+storesDF.join(employeesDF, [col("storeId"), col("employeeId")])
+
+
+A. The join() operation is a standalone function rather than a method of DataFrame — the
+join() operation should be called where its first two arguments are storesDF and
+employeesDF.
+B. There must be a third argument to join() because the default to the how parameter is not
+"inner".
+C. The col("storeId") and col("employeeId") arguments should not be separate
+elements of a list — they should be tested to see if they're equal to one another like
+col("storeId") == col("employeeId").
+D. There is no DataFrame.join() operation — DataFrame.merge() should be used
+instead.
+E. The references to "storeId" and "employeeId" should not be inside the col()
+function — removing the col() function should result in a successful join.
+
+Ans-E
