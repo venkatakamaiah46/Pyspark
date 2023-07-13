@@ -1,0 +1,22 @@
+The code block shown below contains an error. The code block intends to return a new DataFrame
+where column storeCategory from DataFrame storesDF is split at the underscore character
+into column storeValueCategory and column storeSizeCategory. Identify the error.
+A sample of DataFrame storesDF is displayed below:
+Code block:
+(storesDF.withColumn(
+"storeValueCategory", col("storeCategory").split("_")[0]
+).withColumn(
+"storeSizeCategory", col("storeCategory").split("_")[1]
+)
+)
+A. The split() operation comes from the imported functions object. It accepts a string
+column name and split character as arguments. It is not a method of a Column object.
+B. The split() operation comes from the imported functions object. It accepts a Column
+object and split character as arguments. It is not a method of a Column object.
+C. The index values of 0 and 1 should be provided as second arguments to the split()
+operation rather than indexing the result.
+D. The index values of 0 and 1 are not correct — they should be 1 and 2, respectively.
+E. The withColumn() operation cannot be called twice in a row.
+
+
+Ans-B
