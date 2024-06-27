@@ -1,0 +1,10 @@
+#Using_case_when_statements_in_dataframe_api
+
+
+
+from pyspark.sql.functions import when
+df2 = df.withColumn("new_gender", when(df.gender == "M","Male")
+                                 .when(df.gender == "F","Female")
+                                 .when(df.gender.isNull() ,"")
+                                 .otherwise(df.gender))
+df2.show()
